@@ -4,12 +4,17 @@ import { apiCall } from "../utils/apiCall";
 const apiKey = process.env.REACT_APP_API_KEY;
 interface Props {
   id: number;
+  original_title: string;
+  overview: string;
+  release_date: string;
+  title: string;
+  vote_average: number;
+  poster_path: string;
 }
 export const App = () => {
   let [movies, setMovies] = useState([]);
   let query = "";
   const base = "https://api.themoviedb.org/3/";
-  const mostPopularMovies = `${base}popular?api_key=${apiKey}&language=en-US&page=1`;
   const search = `${base}search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
 
   useEffect(() => {
@@ -19,10 +24,22 @@ export const App = () => {
 
   return (
     <div>
-      {movies.length > 0 &&
-        movies.map((movie: Props) => {
-          return <Movie key={movie.id} id={movie.id} />;
-        })}
+      <div className="movies">
+        {movies.length > 0 &&
+          movies.map((movie: Props) => {
+            return (
+              <Movie
+                key={movie.id}
+                original_title={movie.original_title}
+                overview={movie.overview}
+                release_date={movie.release_date}
+                title={movie.title}
+                vote_average={movie.vote_average}
+                poster_path={movie.poster_path}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };

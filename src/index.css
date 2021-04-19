@@ -1,4 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&display=swap");
+.movies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.movie {
+  width: 250px;
+  margin: 15px;
+  background-color: #0f171e;
+  -webkit-transition: all 0.3s cubic-bezier(0.5, 0, 0.1, 1);
+  transition: all 0.3s cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.movie:hover {
+  -webkit-transition: all 0.5s 0.35s cubic-bezier(0.5, 0, 0.1, 1);
+  transition: all 0.5s 0.35s cubic-bezier(0.5, 0, 0.1, 1);
+  -webkit-transform: scale(1.3, 1.3);
+          transform: scale(1.3, 1.3);
+}
+
+.movie__img {
+  max-width: 100%;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
