@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/recruitment_movies_site/static/css/main.f23ff6a1.chunk.css",
-    "main.js": "/recruitment_movies_site/static/js/main.f9ef6d10.chunk.js",
-    "main.js.map": "/recruitment_movies_site/static/js/main.f9ef6d10.chunk.js.map",
+    "main.css": "/recruitment_movies_site/static/css/main.a45c2534.chunk.css",
+    "main.js": "/recruitment_movies_site/static/js/main.0dcccd9d.chunk.js",
+    "main.js.map": "/recruitment_movies_site/static/js/main.0dcccd9d.chunk.js.map",
     "runtime-main.js": "/recruitment_movies_site/static/js/runtime-main.b5ad44dc.js",
     "runtime-main.js.map": "/recruitment_movies_site/static/js/runtime-main.b5ad44dc.js.map",
-    "static/js/2.aeaa507a.chunk.js": "/recruitment_movies_site/static/js/2.aeaa507a.chunk.js",
-    "static/js/2.aeaa507a.chunk.js.map": "/recruitment_movies_site/static/js/2.aeaa507a.chunk.js.map",
+    "static/js/2.538f7ff1.chunk.js": "/recruitment_movies_site/static/js/2.538f7ff1.chunk.js",
+    "static/js/2.538f7ff1.chunk.js.map": "/recruitment_movies_site/static/js/2.538f7ff1.chunk.js.map",
     "index.html": "/recruitment_movies_site/index.html",
-    "static/css/main.f23ff6a1.chunk.css.map": "/recruitment_movies_site/static/css/main.f23ff6a1.chunk.css.map",
-    "static/js/2.aeaa507a.chunk.js.LICENSE.txt": "/recruitment_movies_site/static/js/2.aeaa507a.chunk.js.LICENSE.txt"
+    "static/css/main.a45c2534.chunk.css.map": "/recruitment_movies_site/static/css/main.a45c2534.chunk.css.map",
+    "static/js/2.538f7ff1.chunk.js.LICENSE.txt": "/recruitment_movies_site/static/js/2.538f7ff1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b5ad44dc.js",
-    "static/js/2.aeaa507a.chunk.js",
-    "static/css/main.f23ff6a1.chunk.css",
-    "static/js/main.f9ef6d10.chunk.js"
+    "static/js/2.538f7ff1.chunk.js",
+    "static/css/main.a45c2534.chunk.css",
+    "static/js/main.0dcccd9d.chunk.js"
   ]
 }
