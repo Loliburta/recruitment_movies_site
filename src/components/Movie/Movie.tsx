@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { MovieOverview } from "../MovieOverview/MovieOverview";
-import { OverviewContext } from "../../utils/context";
+import { overviewContext } from "../../utils/context";
 
 interface Props {
   original_title: string;
@@ -19,12 +19,10 @@ export const Movie: React.FC<Props> = ({
   vote_average,
   poster_path,
 }) => {
-  let [overviewBox, setOverviewBox] = useState<any>();
-  const [isOpen, setIsOpen] = useContext(OverviewContext);
-  setIsOpen!(true);
-  console.log(isOpen);
-  const setOverview = () => {
-    setOverviewBox(
+  const [overviewBox, setOverviewBox] = useContext(overviewContext);
+
+  const openOverview = () => {
+    setOverviewBox!(
       <MovieOverview
         original_title={original_title}
         overview={overview}
@@ -35,10 +33,10 @@ export const Movie: React.FC<Props> = ({
       />
     );
   };
+
   return (
     <>
-      {overviewBox ? overviewBox : ""}
-      <div className="movie" onClick={setOverview}>
+      <div className="movie" onClick={openOverview}>
         <img className="movie__img" src={imgApi + poster_path} alt={title} />
         <div className="movie__info">
           <div className="movie__info__title">{title}</div>

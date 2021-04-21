@@ -1,5 +1,7 @@
 import { Icon } from "@iconify/react";
 import closeIcon from "@iconify-icons/carbon/close";
+import { overviewContext } from "../../utils/context";
+import { useContext } from "react";
 interface Props {
   original_title: string;
   overview: string;
@@ -16,11 +18,16 @@ export const MovieOverview: React.FC<Props> = ({
   vote_average,
   poster_path,
 }) => {
+  let [overviewBox, setOverviewBox] = useContext(overviewContext);
+
+  const closeOverview = () => {
+    setOverviewBox!("");
+  };
   const imgApi = "https://image.tmdb.org/t/p/w1280";
   return (
     <div className="movieOverview__wrapper">
       <div className="movieOverview">
-        <div className="movieOverview__iconDiv">
+        <div className="movieOverview__iconDiv" onClick={closeOverview}>
           <Icon className="movieOverview__iconDiv__icon" icon={closeIcon} />
         </div>
         <img

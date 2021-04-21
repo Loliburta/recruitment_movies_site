@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { App } from "./App/App";
-import { OverviewContext } from "../utils/context";
+import { overviewContext } from "../utils/context";
 
 export const Wrapper = () => {
-  let [open, isOpen] = useState(false);
+  let [overviewBox, setOverviewBox] = useState("");
 
   return (
-    <OverviewContext.Provider value={[open, isOpen]}>
+    <overviewContext.Provider value={[overviewBox, setOverviewBox]}>
       <App />
-    </OverviewContext.Provider>
+    </overviewContext.Provider>
   );
 };
 

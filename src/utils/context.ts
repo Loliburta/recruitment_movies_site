@@ -1,4 +1,8 @@
 import { createContext } from "react";
-type ContextProps = [isOpen?: boolean, setIsOpen?: (open: boolean) => void];
 
-export const OverviewContext = createContext<ContextProps>([]);
+type overviewContextProps = [
+    overviewBox: any,
+    setOverviewBox?: React.Dispatch<React.SetStateAction<any>>
+  ];
+export const overviewContext = createContext<overviewContextProps>([""]);
+
