@@ -9,6 +9,7 @@ interface Props {
   title: string;
   vote_average: number;
   poster_path: string;
+  backdrop_path: string;
 }
 export const MovieOverview: React.FC<Props> = ({
   original_title,
@@ -17,27 +18,36 @@ export const MovieOverview: React.FC<Props> = ({
   title,
   vote_average,
   poster_path,
+  backdrop_path,
 }) => {
-  let [overviewBox, setOverviewBox] = useContext(overviewContext);
-
+  const [overviewBox, setOverviewBox] = useContext(overviewContext);
   const closeOverview = () => {
+    document.getElementsByTagName("body")[0]!.style.overflowY = "visible";
+
     setOverviewBox!("");
   };
+
   const imgApi = "https://image.tmdb.org/t/p/w1280";
   return (
-    <div className="movieOverview__wrapper">
-      <div className="movieOverview">
+    <div className="movieOverview__wrapper" onClick={closeOverview}>
+      <div
+        className="movieOverview"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <div className="movieOverview__iconDiv" onClick={closeOverview}>
           <Icon className="movieOverview__iconDiv__icon" icon={closeIcon} />
         </div>
         <img
           className="movieOverview__img"
-          src={imgApi + poster_path}
+          src={imgApi + backdrop_path}
           alt={title}
         />
-
-        <div className="movieOverview__overview">{overview}</div>
-        <div className="movieOverview__title">{title}</div>
+        <div className="movieOverview__details">
+          <div className="movieOverview__details__overview">{overview}</div>
+          <div className="movieOverview__details__title">{title}</div>
+        </div>
       </div>
     </div>
   );

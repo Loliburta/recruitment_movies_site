@@ -1,5 +1,43 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: clamp(15rem, 50vw, 33rem);
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.navbar__search {
+  width: 100%;
+  outline: none;
+  border: none;
+  border: 1px solid white;
+  padding: 10px 0px 10px 40px;
+  border-radius: 7px;
+  background-color: white;
+  font-size: 14px;
+  color: black;
+  font-family: "Lato", sans-serif;
+}
+.navbar__icon {
+  font-size: 25px;
+  left: 10px;
+  margin-top: 7px;
+  color: black;
+  display: flex;
+  position: absolute;
+  cursor: text;
+}
 .movies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-right: 11px;
+}
+.movies--open {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 19px;
 }
