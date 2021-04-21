@@ -1,4 +1,19 @@
 .navbar {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navbar__popular {
+  border: 2px solid green;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+.navbar__search {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +23,7 @@
   margin: auto;
   margin-bottom: 10px;
 }
-.navbar__search {
+.navbar__input {
   width: 100%;
   outline: none;
   border: none;
@@ -33,7 +48,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-right: 11px;
+  padding: 20px;
 }
 .movies--open {
   display: flex;

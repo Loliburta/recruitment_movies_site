@@ -11,7 +11,7 @@ interface Props {
   poster_path: string;
   backdrop_path: string;
 }
-const imgApi = "https://image.tmdb.org/t/p/w1280";
+const imgApi = "https://image.tmdb.org/t/p/w300";
 export const Movie: React.FC<Props> = ({
   original_title,
   overview,

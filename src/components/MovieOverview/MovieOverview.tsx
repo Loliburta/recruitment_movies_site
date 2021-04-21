@@ -20,14 +20,13 @@ export const MovieOverview: React.FC<Props> = ({
   poster_path,
   backdrop_path,
 }) => {
+  const imgApi = "https://image.tmdb.org/t/p/w500";
   const [overviewBox, setOverviewBox] = useContext(overviewContext);
   const closeOverview = () => {
     document.getElementsByTagName("body")[0]!.style.overflowY = "visible";
-
     setOverviewBox!("");
   };
 
-  const imgApi = "https://image.tmdb.org/t/p/w1280";
   return (
     <div className="movieOverview__wrapper" onClick={closeOverview}>
       <div
