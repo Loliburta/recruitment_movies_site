@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useContext } from "react";
 import { MovieOverview } from "../MovieOverview/MovieOverview";
 import { overviewContext } from "../../utils/context";
 
 interface Props {
-  original_title: string;
+  id: number;
   overview: string;
   release_date: string;
   title: string;
@@ -14,7 +14,7 @@ interface Props {
 }
 const imgApi = "https://image.tmdb.org/t/p/w300";
 export const Movie: React.FC<Props> = ({
-  original_title,
+  id,
   overview,
   release_date,
   title,
@@ -23,12 +23,12 @@ export const Movie: React.FC<Props> = ({
   poster_path,
   backdrop_path,
 }) => {
-  const [overviewBox, setOverviewBox] = useContext(overviewContext);
+  const [,setOverviewBox] = useContext(overviewContext);
 
   const openOverview = () => {
     setOverviewBox!(
       <MovieOverview
-        original_title={original_title}
+        id={id}
         overview={overview}
         release_date={release_date}
         genre_ids={genre_ids}
@@ -53,7 +53,6 @@ export const Movie: React.FC<Props> = ({
         >
           {vote_average}
         </div>
-
         <div className="movie__info">
           <div className="movie__info__title">{title}</div>
         </div>

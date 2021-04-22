@@ -7,7 +7,6 @@ import { Icon } from "@iconify/react";
 import searchFill from "@iconify-icons/eva/search-fill";
 interface Props {
   id: number;
-  original_title: string;
   overview: string;
   release_date: string;
   all_genres: [{ id: number; name: string }];
@@ -19,9 +18,15 @@ interface Props {
 }
 export const App: React.FC = () => {
   const [movies, setMovies] = useState([]);
-  const [overviewBox, setOverviewBox] = useContext(overviewContext);
+  const [overviewBox] = useContext(overviewContext);
   const debouncedSearch = useCallback(
-    debounce((search, setMovies) => searchCall(search, setMovies), 700),
+    debounce(
+      (
+        search: string,
+        setMovies: React.Dispatch<React.SetStateAction<never[]>>
+      ) => searchCall(search, setMovies),
+      700
+    ),
     []
   );
   const handleChange = (e: React.ChangeEvent<any>) => {
@@ -69,16 +74,16 @@ export const App: React.FC = () => {
           />
         </div>
       </div>
-      <div className={overviewBox ? "movies--open" : "movies"}>
+      <div className="movies">
         {movies &&
           movies.map((movie: Props) => {
             if (!movie.backdrop_path || !movie.poster_path) {
-              return;
+              return "";
             }
             return (
               <Movie
                 key={movie.id}
-                original_title={movie.original_title}
+                id={movie.id}
                 overview={movie.overview}
                 release_date={movie.release_date}
                 genre_ids={movie.genre_ids}

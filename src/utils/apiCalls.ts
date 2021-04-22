@@ -44,9 +44,30 @@ export const getGenres = async (genre_ids: number[]) => {
     );
     const genres = await res.json();
     for (const x of genres.genres) {
-      genre_ids.includes(x.id) && (result += `${x.name} `);
+      genre_ids.includes(x.id) && (result += `${x.name}, `);
     }
-    return result.slice(0, -1);
+    return result.slice(0, -2);
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getCast = async (movie_id: number) => {
+  try {
+    let result = "";
+    const res = await fetch(
+      `${base}movie/${movie_id}/credits?api_key=${apiKey}&language=en-US`
+    );
+    const credits = await res.json();
+    console.log(credits);
+    for (const value in credits.cast) {
+      if (value === "4") {
+        break;
+      }
+      result += `${credits.cast[value].name}, `;
+    }
+    return result.slice(0, -2);
   } catch (error) {
     console.log(error);
   }

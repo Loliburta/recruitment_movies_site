@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import closeIcon from "@iconify-icons/carbon/close";
 import { overviewContext } from "../../utils/context";
-import { getGenres } from "../../utils/apiCalls";
+import { getGenres, getCast } from "../../utils/apiCalls";
 import { useContext } from "react";
 interface Props {
-  original_title: string;
+  id: number;
   overview: string;
   release_date: string;
   genre_ids: number[];
@@ -15,7 +15,7 @@ interface Props {
   backdrop_path: string;
 }
 export const MovieOverview: React.FC<Props> = ({
-  original_title,
+  id,
   overview,
   release_date,
   genre_ids,
@@ -24,10 +24,10 @@ export const MovieOverview: React.FC<Props> = ({
   poster_path,
   backdrop_path,
 }) => {
-  const [overviewBox, setOverviewBox] = useContext(overviewContext);
+  const [, setOverviewBox] = useContext(overviewContext);
   const imgApi = "https://image.tmdb.org/t/p/w500";
   const [movieGenres, setMovieGenres] = useState<any>("");
-
+  const [movieCast, setMovieCast] = useState<any>([]);
 
   const closeOverview = () => {
     setOverviewBox!("");
@@ -36,8 +36,10 @@ export const MovieOverview: React.FC<Props> = ({
   useEffect(() => {
     (async () => {
       setMovieGenres(await getGenres(genre_ids));
+      setMovieCast(await getCast(id));
+      console.log(movieCast);
     })();
-  }, []);
+  }, [genre_ids, id, movieCast]);
 
   return (
     <div className="movieOverview__wrapper" onClick={closeOverview}>
@@ -56,7 +58,9 @@ export const MovieOverview: React.FC<Props> = ({
           alt={title}
         />
         <div className="details">
-          <div className="details__title">{title}</div>
+          <div className="details__title">
+            {title} ({release_date.slice(0, 4)})
+          </div>
           <div className="details__rating">
             Rating{" "}
             <b
@@ -70,12 +74,11 @@ export const MovieOverview: React.FC<Props> = ({
             </b>{" "}
             / 10
           </div>
-          <div className="details__release_date">
-            Release date {release_date}
-          </div>
+
           <div className="details__overview">{overview}</div>
+          <div className="details__movieGenres">Genres: {movieGenres}</div>
+          <div className="details__cast">Cast: {movieCast}</div>
         </div>
-        <div>{movieGenres}</div>
       </div>
     </div>
   );

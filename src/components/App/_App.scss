@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 .categories__popular {
   border: 2px solid green;
@@ -59,13 +58,11 @@
   justify-content: center;
   padding: 20px;
 }
-.movies--open {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-}
+
 @media (max-width: 900px) {
+  .movies {
+    padding: 10px;
+  }
   .navbar {
     flex-direction: column;
     justify-content: center;
