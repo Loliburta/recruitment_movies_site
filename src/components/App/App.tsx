@@ -10,12 +10,14 @@ interface Props {
   original_title: string;
   overview: string;
   release_date: string;
+  all_genres: [{ id: number; name: string }];
+  genre_ids: number[];
   title: string;
   vote_average: number;
   poster_path: string;
   backdrop_path: string;
 }
-export const App = () => {
+export const App: React.FC = () => {
   const [movies, setMovies] = useState([]);
   const [overviewBox, setOverviewBox] = useContext(overviewContext);
   const debouncedSearch = useCallback(
@@ -28,30 +30,31 @@ export const App = () => {
 
   useEffect(() => {
     getCall("popular", setMovies);
-    console.log(movies);
   }, []);
 
   return (
     <>
       {overviewBox ? overviewBox : ""}
       <div className="navbar">
-        <div
-          className="navbar__popular"
-          onClick={() => getCall("popular", setMovies)}
-        >
-          Popular
-        </div>
-        <div
-          className="navbar__popular"
-          onClick={() => getCall("top_rated", setMovies)}
-        >
-          Top Rated
-        </div>
-        <div
-          className="navbar__popular"
-          onClick={() => getCall("upcoming", setMovies)}
-        >
-          Upcoming
+        <div className="categories">
+          <div
+            className="categories__popular"
+            onClick={() => getCall("popular", setMovies)}
+          >
+            Popular
+          </div>
+          <div
+            className="categories__popular"
+            onClick={() => getCall("top_rated", setMovies)}
+          >
+            Top Rated
+          </div>
+          <div
+            className="categories__popular"
+            onClick={() => getCall("upcoming", setMovies)}
+          >
+            Upcoming
+          </div>
         </div>
         <div className="navbar__search">
           <label htmlFor="input">
@@ -78,6 +81,7 @@ export const App = () => {
                 original_title={movie.original_title}
                 overview={movie.overview}
                 release_date={movie.release_date}
+                genre_ids={movie.genre_ids}
                 title={movie.title}
                 vote_average={movie.vote_average}
                 poster_path={movie.poster_path}

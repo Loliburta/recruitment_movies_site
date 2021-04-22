@@ -42,3 +42,30 @@
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+.details {
+  font-size: 1.1rem;
+  padding: 0px 25px;
+  justify-content: center;
+}
+.details__title {
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.details__rating {
+  margin-bottom: 10px;
+}
+.details__vote_average,
+.details__vote_average--bad {
+  color: lightgreen;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.details__vote_average--bad {
+  color: red;
+}
+.details__release_date {
+  margin-bottom: 10px;
+}

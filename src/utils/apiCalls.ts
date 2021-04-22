@@ -35,3 +35,19 @@ export const searchCall = async (
     console.log(error);
   }
 };
+
+export const getGenres = async (genre_ids: number[]) => {
+  try {
+    let result = "";
+    const res = await fetch(
+      `${base}genre/movie/list?api_key=${apiKey}&language=en-US`
+    );
+    const genres = await res.json();
+    for (const x of genres.genres) {
+      genre_ids.includes(x.id) && (result += `${x.name} `);
+    }
+    return result.slice(0, -1);
+  } catch (error) {
+    console.log(error);
+  }
+};

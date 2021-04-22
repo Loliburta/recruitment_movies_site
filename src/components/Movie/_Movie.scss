@@ -16,8 +16,26 @@
 .movie__img {
   max-width: 100%;
 }
+.movie__vote_average,
+.movie__vote_average--bad {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: green;
+  padding: 3px;
+  border-radius: 3px;
+  min-width: 30px;
+  justify-content: center;
+  display: flex;
+  font-size: 1.1rem;
+}
+.movie__vote_average--bad {
+  background-color: red;
+}
 .movie__info {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+  padding-top: 5px;
 }
