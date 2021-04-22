@@ -9,7 +9,6 @@ export const getCall = async (
   try {
     const res = await fetch(mostPopularMovies);
     const moviesList = await res.json();
-    console.log(moviesList.results);
     setMovies(moviesList.results);
   } catch (error) {
     console.log(error);
@@ -26,7 +25,6 @@ export const searchCall = async (
         `${base}search/movie?api_key=${apiKey}&language=en-US&query=${search}&page=1&include_adult=false`
       );
       const moviesList = await res.json();
-      console.log(moviesList);
       setMovies(moviesList.results);
     } else {
       getCall("popular", setMovies);
@@ -47,7 +45,6 @@ export const getGenres = async (genre_ids: number[]) => {
       genre_ids.includes(x.id) && (result += `${x.name}, `);
     }
     return result.slice(0, -2);
-
   } catch (error) {
     console.log(error);
   }
@@ -60,7 +57,6 @@ export const getCast = async (movie_id: number) => {
       `${base}movie/${movie_id}/credits?api_key=${apiKey}&language=en-US`
     );
     const credits = await res.json();
-    console.log(credits);
     for (const value in credits.cast) {
       if (value === "4") {
         break;

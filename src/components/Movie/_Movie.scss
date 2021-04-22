@@ -21,7 +21,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: green;
+  background-color: rgb(3, 133, 3);
   padding: 3px;
   border-radius: 3px;
   min-width: 30px;
@@ -30,7 +30,7 @@
   font-size: 1.1rem;
 }
 .movie__vote_average--bad {
-  background-color: red;
+  background-color: rgb(234, 57, 67);
 }
 .movie__info {
   display: flex;
@@ -39,4 +39,3 @@
   text-align: center;
   padding: 5px 0px;
 }
-

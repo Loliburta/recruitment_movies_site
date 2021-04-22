@@ -149,7 +149,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: green;
+  background-color: #038503;
   padding: 3px;
   border-radius: 3px;
   min-width: 30px;
@@ -163,7 +163,7 @@
 }
 
 .movie__vote_average--bad {
-  background-color: red;
+  background-color: #ea3943;
 }
 
 .movie__info {

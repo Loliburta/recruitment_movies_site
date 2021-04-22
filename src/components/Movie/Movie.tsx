@@ -23,7 +23,7 @@ export const Movie: React.FC<Props> = ({
   poster_path,
   backdrop_path,
 }) => {
-  const [,setOverviewBox] = useContext(overviewContext);
+  const [, setOverviewBox] = useContext(overviewContext);
 
   const openOverview = () => {
     setOverviewBox!(
