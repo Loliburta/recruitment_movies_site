@@ -19,17 +19,22 @@ interface Props {
 export const App: React.FC = () => {
   const [movies, setMovies] = useState([]);
   const [overviewBox] = useContext(overviewContext);
+  //Doesn't matter if variable is stale bcs it overwrites it
+  //eslint-disable-next-line
   const debouncedSearch = useCallback(
     debounce(
       (
         search: string,
         setMovies: React.Dispatch<React.SetStateAction<never[]>>
       ) => searchCall(search, setMovies),
-      700
+      500
     ),
     []
   );
-  const handleChange = (e: React.ChangeEvent<any>) => {
+  const handleChange = (
+    e: React.ChangeEvent<any>,
+    setMovies: React.Dispatch<React.SetStateAction<never[]>>
+  ) => {
     debouncedSearch(e.target.value, setMovies);
   };
 
@@ -70,7 +75,7 @@ export const App: React.FC = () => {
             className="navbar__input"
             type="text"
             placeholder="Search"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, setMovies)}
           />
         </div>
       </div>

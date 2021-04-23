@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lato&display=swap");
 .navbar {
   padding-top: 20px;
   display: -webkit-box;
@@ -42,6 +42,7 @@
   padding: 5px 10px;
   margin: 0px 7px;
   cursor: pointer;
+  font-weight: 300;
   font-size: clamp(0.7rem, 4vw, 1.15rem);
   white-space: nowrap;
 }
@@ -269,12 +270,12 @@
 
 .details__vote_average,
 .details__vote_average--bad {
-  color: lightgreen;
+  color: #18ce18;
   font-weight: 400;
 }
 
 .details__vote_average--bad {
-  color: red;
+  color: #ea3943;
 }
 
 .details__release_date {
@@ -285,6 +286,15 @@
 .details__movieGenres,
 .details__cast {
   margin-bottom: 20px;
+}
+
+.details__movieGenres,
+.details__cast {
+  font-size: clamp(14.5px, 2vw, 16px);
+}
+
+.details--gray {
+  color: #a79797;
 }
 
 * {

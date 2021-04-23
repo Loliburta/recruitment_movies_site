@@ -12,7 +12,6 @@ interface Props {
   poster_path: string;
   backdrop_path: string;
 }
-const imgApi = "https://image.tmdb.org/t/p/w300";
 export const Movie: React.FC<Props> = ({
   id,
   overview,
@@ -24,7 +23,7 @@ export const Movie: React.FC<Props> = ({
   backdrop_path,
 }) => {
   const [, setOverviewBox] = useContext(overviewContext);
-
+  const imgApi = "https://image.tmdb.org/t/p/w300";
   const openOverview = () => {
     setOverviewBox!(
       <MovieOverview
@@ -34,7 +33,6 @@ export const Movie: React.FC<Props> = ({
         genre_ids={genre_ids}
         title={title}
         vote_average={vote_average}
-        poster_path={poster_path}
         backdrop_path={backdrop_path}
       />
     );

@@ -63,11 +63,11 @@
 }
 .details__vote_average,
 .details__vote_average--bad {
-  color: lightgreen;
+  color: rgb(24, 206, 24);
   font-weight: 400;
 }
 .details__vote_average--bad {
-  color: red;
+  color: rgb(234, 57, 67);
 }
 .details__release_date {
   margin-bottom: 10px;
@@ -76,4 +76,11 @@
 .details__movieGenres,
 .details__cast {
   margin-bottom: 20px;
+}
+.details__movieGenres,
+.details__cast {
+  font-size: clamp(14.5px, 2vw, 16px);
+}
+.details--gray {
+  color: rgb(167, 151, 151);
 }

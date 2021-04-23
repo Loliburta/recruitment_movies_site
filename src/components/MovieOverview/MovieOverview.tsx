@@ -11,7 +11,6 @@ interface Props {
   genre_ids: number[];
   title: string;
   vote_average: number;
-  poster_path: string;
   backdrop_path: string;
 }
 export const MovieOverview: React.FC<Props> = ({
@@ -21,13 +20,12 @@ export const MovieOverview: React.FC<Props> = ({
   genre_ids,
   title,
   vote_average,
-  poster_path,
   backdrop_path,
 }) => {
   const [, setOverviewBox] = useContext(overviewContext);
-  const imgApi = "https://image.tmdb.org/t/p/w500";
-  const [movieGenres, setMovieGenres] = useState<any>("");
-  const [movieCast, setMovieCast] = useState<any>([]);
+  const imgApi = "https://image.tmdb.org/t/p/w780";
+  const [movieGenres, setMovieGenres] = useState<string | undefined>("");
+  const [movieCast, setMovieCast] = useState<string | undefined>("");
 
   const closeOverview = () => {
     setOverviewBox!("");
@@ -37,7 +35,6 @@ export const MovieOverview: React.FC<Props> = ({
     (async () => {
       setMovieGenres(await getGenres(genre_ids));
       setMovieCast(await getCast(id));
-      console.log(movieCast);
     })();
   }, [genre_ids, id, movieCast]);
 
@@ -76,8 +73,12 @@ export const MovieOverview: React.FC<Props> = ({
           </div>
 
           <div className="details__overview">{overview}</div>
-          <div className="details__movieGenres">Genres: {movieGenres}</div>
-          <div className="details__cast">Cast: {movieCast}</div>
+          <div className="details__movieGenres">
+            <span className="details--gray">Genres:</span> {movieGenres}
+          </div>
+          <div className="details__cast">
+            <span className="details--gray">Cast:</span> {movieCast}
+          </div>
         </div>
       </div>
     </div>
